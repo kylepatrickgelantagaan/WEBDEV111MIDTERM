@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallery</title>
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            
+            color: white;
+            display: grid;
+            grid-template-areas: 
+                "header header"
+                "sidebar main";
+            grid-template-columns: 240px 1fr;
+            grid-template-rows: 60px 1fr;
+            height: 100vh;
+        }
+
+      
+        header {
+            grid-area: header;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo { font-weight: bold; color: #1DB954; font-size: 1.2rem; }
+
+        
+        nav {
+            grid-area: sidebar;
+            background-color: #694C35;
+            padding: 20px;
+            border-right: 1px solid #333;
+        }
+
+        .nav-section { margin-bottom: 30px; }
+        .nav-section h4 { color: #888; font-size: 12px; text-transform: uppercase; }
+
+        .nav-link {
+            display: block;
+            color: #b3b3b3;
+            text-decoration: none;
+            padding: 10px 0;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover { color: white; }
+        .nav-link.active { color: #1DB954; font-weight: bold; }
+
+        main {
+            grid-area: main;
+            padding: 30px;
+            overflow-y: auto;
+            
+        }
+
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .music-card {
+            background: #694C35;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .music-card:hover { background: #694C35; }
+        .album-art { 
+            width: 100%; aspect-ratio: 1; background: #694C35; 
+            margin-bottom: 10px; border-radius: 4px;
+            display: flex; align-items: center; justify-content: center; font-size: 40px;
+        }
+    </style>
+</head>
+<body background="1000127781.png"width="500" height="160"</>
+
+    <header>
+        <div class="logo">Vibe stream</div>
+        <div class="user-box" style="border: 1px solid #444; padding: 5px 15px; border-radius: 20px; font-size: 12px;">
+           <a href="index.html" class="nav-link active">Log out</a>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-section">
+            <h4>Menu</h4>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="music.html" class="nav-link">Now Playing</a>
+        </div>
+
+    </nav>
+
+    <main>
+        <h2>Featured Music</h2>
+        <div class="gallery-container">
+            <a href="music.html" class="music-card">
+                <div class="album-art"><img src="Brush.jpg" alt="Description of the image" width="500" height="160"></div>
+                <p>NO NO SQUARE</p>
+            </a>
+            <a href="music2.html" class="music-card">
+                <div class="album-art"><img src="download.jpg" alt="Description of the image" width="500" height="160"></div>
+                <p>DIAMOND EYE </p>
+            </a>
+			
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>

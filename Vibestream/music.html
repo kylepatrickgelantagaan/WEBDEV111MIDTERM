@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <style>
+        /* Layout Configuration */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212; /* Dark theme */
+            color: white;
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 60px 1fr; /* Header top, content bottom */
+            grid-template-columns: 280px 1fr; /* Settings left, Music right */
+            grid-template-areas: 
+                "header header"
+                "sidebar main";
+        }
+
+        /* Top Header */
+        header {
+            grid-area: header;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            border-bottom: 1px solid #333;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Left Side: Settings */
+        .settings-sidebar {
+            grid-area: sidebar;
+            background-color: #121212;
+            padding: 20px;
+            border-right: 1px solid #333;
+        }
+
+        .settings-sidebar h3 { color: #1DB954; font-size: 14px; margin-bottom: 20px; }
+        
+        .setting-group { margin-bottom: 25px; }
+        .setting-item {
+            padding: 10px 0;
+            color: #b3b3b3;
+            cursor: pointer;
+            transition: 0.3s;
+            border-bottom: 1px solid #222;
+        }
+        .setting-item:hover { color: white; }
+
+        /* Right Side: Music Area */
+        .music-main {
+            grid-area: main;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .music-card {
+            width: 300px;
+            height: 300px;
+            background-color: #282828;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .play-btn {
+            font-size: 50px;
+            color: #1DB954;
+            margin-top: 15px;
+        }
+
+        /* Hidden Audio Element */
+        #audio-player { display: none; }
+
+        .active-glow {
+            border: 2px solid #1DB954;
+            box-shadow: 0 0 20px rgba(29, 185, 84, 0.4);
+        }
+    </style>
+</head>
+<body background="1000127783.png"width="100" height="99"</>
+
+    <header>VIBE STREAM</header>
+
+    <aside class="settings-sidebar">
+        <h3>Playing music</h3>
+        <div class="setting-group">
+            <div class="setting-item"><img src="Brush.jpg" width="100" height="99"></div>
+            <div class="setting-item">THE BOYS</div>
+            <div class="setting-item">NO NO SQUARE SONG</div>
+            <div class="setting-item"><button onclick="goBack()">GO BACK</button></div>
+        </div>
+    </aside>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+    <main class="music-main" onclick="playMusic()">
+        <div class="music-card" id="musicCard">
+            <img src="Brush.jpg"width="200" height="160"border-radius: 4px;">
+            <h2 id="statusText">Click to Play Music</h2>
+            <div class="play-btn">▶</div>
+        </div>
+        
+        <audio id="audio-player" controls>
+            <source src="The Boys - NO NO SQUARE (Official Music Video).mp3" type="audio/mpeg">
+        </audio>
+		
+    </main>
+
+    <script>
+        function playMusic() {
+            const audio = document.getElementById('audio-player');
+            const card = document.getElementById('musicCard');
+            const text = document.getElementById('statusText');
+
+            if (audio.paused) {
+                audio.play();
+                text.innerText = "Now Playing...";
+                card.classList.add('active-glow');
+            } else {
+                audio.pause();
+                text.innerText = "Music Paused";
+                card.classList.remove('active-glow');
+            }
+        }
+    </script>
+
+</body>
+</html>

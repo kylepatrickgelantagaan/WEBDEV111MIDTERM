@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "header header"
+                "left-side right-side";
+            grid-template-columns: 300px 1fr; /* Fixed left width, flexible right */
+            grid-template-rows: 80px 1fr;     /* Header is 80px, rest is flexible */
+            height: 100%;
+        }
+
+        
+        .header {
+            grid-area: header;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 25px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        
+        .left-side {
+            grid-area: left-side;
+            background-color: #544E4D;
+            padding: 20px;
+            border-right: 2px solid #e0e0e0; /* The "Left/Right Line" */
+        }
+
+        
+        .right-side {
+            grid-area: right-side;
+
+            padding: 20px;
+        }
+
+        /* Decorative labels */
+        .label {
+            color: #888;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body background="1000127782.png">
+
+    <div class="container">
+        <header class="header"><img src="download.jpg" alt="Description of the image" width="200" height="98">
+            Vibe stream
+        </header>
+
+        <aside class="left-side">
+            <p class="label">Settings</p>
+            <h3>Music Configuration</h3>
+            <hr>
+            <ul>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="index.html">LOG OFF</a></li>
+            </ul>
+        </aside>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+        <main class="right-side">
+            <p class="label">Dashboard</p>
+            <h2>Dashboard</h2>
+            <div style="border: 2px dashed #ccc; height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+               
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
